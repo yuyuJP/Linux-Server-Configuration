@@ -30,7 +30,7 @@ Change line to : `Port 2200`
 ```
 $ sudo su - grader
 ```
-Follow this [instruction](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2) or udacity course
+Follow this [instruction](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2) or udacity course.
 
 3. Reload ssh
 ```
@@ -92,4 +92,28 @@ postgres=# \q
 5. Exit from user `postgres`
 ```
 $ exit
+```
+
+## Clone Catalog App
+1. Change directory
+```
+$ cd /var/www/
+```
+2. Create directory and move inside it
+```
+$ sudo mkdir catalog; cd catalog
+```
+3. Clone Smartphone Catalog App project
+```
+$ git clone https://github.com/yuyuJP/Smartphone-Catalog-App.git
+```
+
+4. Create `catalog` directory in catalog directory
+```
+$ sudo mkdir catalog
+```
+
+5. Move files to catalog directory
+```
+$ mv Smartphone-Catalog-App/vagrant/catalog/* ./catalog
 ```
