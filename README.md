@@ -8,6 +8,14 @@ SSH Port: `2200`
 
 To test catalog app, visit [http://18.179.61.173.xip.io/](http://18.179.61.173.xip.io/), not http://18.179.61.173 due to security issues of Google API
 
+## Installed Software
+- Apache
+- libapache2-mod-wsgi
+- PostgreSQL
+- python
+- Flask flamework (python)
+
+
 ## User Management
 1. Create user
 ```
@@ -61,6 +69,8 @@ $ sudo ufw enable
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
+$ sudo aptitude update
+$ sudo aptitude safe-upgrade
 ```
 
 ## Install Apache and mod_wsgi
@@ -202,3 +212,8 @@ $ sudo service apache2 restart
 
 ## Testing
 To test this catalog app, you can visit [http://18.179.61.173.xip.io/](http://18.179.61.173.xip.io/)
+
+## Third-party Resources
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
+
+- http://learnaholic.me/2014/01/09/ubuntu-vps-step-by-step-config-notes/
