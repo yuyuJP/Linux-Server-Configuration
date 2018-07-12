@@ -6,6 +6,7 @@ IP Address: `18.179.61.173`
 
 SSH Port: `2200`
 
+To test catalog app, visit [http://18.179.61.173.xip.io/](http://18.179.61.173.xip.io/), not http://18.179.61.173 due to security issues of Google API
 
 ## User Management
 1. Create user
