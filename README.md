@@ -117,3 +117,51 @@ $ sudo mkdir catalog
 ```
 $ mv Smartphone-Catalog-App/vagrant/catalog/* ./catalog
 ```
+
+## Setup Catalog App
+1. Install pip
+```
+$ sudo apt-get install python-pip
+```
+
+2. Install dependencies
+```
+$ sudo pip install sqlalchemy flask-sqlalchemy psycopg2-binary bleach requests
+$ sudo pip install flask packaging oauth2client redis passlib flask-httpauth
+```
+
+3. Setup database
+```
+$ sudo python database_setup.py
+```
+4. Add items to database
+```
+$ sudo python addmanyitems.py
+```
+
+## Configure Web Server
+1. Create catalog.conf file
+```
+sudo nano /etc/apache2/sites-available/catalog.conf
+```
+2. Add the following lines
+```
+  <VirtualHost *:80>
+        ServerName catalog-app
+        ServerAdmin yu.yu.jp0@gmail.com
+        WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+        <Directory /var/www/catalog/catalog/>
+                Order allow,deny
+                Allow from all
+        </Directory>
+        Alias /static /var/www/catalog/catalog/static
+        <Directory /var/www/catalog/catalog/static/>
+                Order allow,deny
+                Allow from all
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        LogLevel warn
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+
+```
