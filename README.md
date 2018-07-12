@@ -43,7 +43,7 @@ $ ssh -i [key file path] grader@18.179.61.173 -p 2200
 ```
 
 ## Firewall Settings
-1. Only allow connections for `SSH`(port 2200), `HTTP`(port 80) and `NTP`(port 123)
+Only allow connections for `SSH`(port 2200), `HTTP`(port 80) and `NTP`(port 123)
 ```
 $ sudo ufw allow 2200/tcp
 $ sudo ufw allow www
@@ -51,8 +51,45 @@ $ sudo ufw allow ntp
 $ sudo ufw enable
 ```
 
-## Update system packages
+## Update System Packages
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
+```
+
+## Install Apache and mod_wsgi
+```
+$ sudo apt-get install apache2
+$ sudo apt-get install libapache2-mod-wsgi
+$ sudo service apache2 restart
+```
+
+## Install PostgreSQL and Create Database
+1. Install PostgreSQL
+```
+$ sudo apt-get install postgresql
+```
+
+2. Login as user `postgres`
+```
+$ sudo su - postgres
+```
+
+3. Create database
+```
+$ psql
+```
+```
+postgres=# CREATE DATABASE catalog;
+postgres=# CREATE USER catalog;
+postgres=# ALTER ROLE catalog WITH PASSWORD 'catalogpassword';
+```
+4. Give user permission
+```
+postgres=# GRANT ALL PRIVILEGES ON DATABASE catalog TO catalog;
+postgres=# \q
+```
+5. Exit from user `postgres`
+```
+$ exit
 ```
