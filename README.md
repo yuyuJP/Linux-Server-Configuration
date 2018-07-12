@@ -1,6 +1,11 @@
 # Linux-Server-Configuration
 This repository is for Udacity Full Stack Web Developer Nanodegree Program Submission
 
+# Server Info
+IP Address: `18.179.61.173`
+
+SSH Port: `2200`
+
 
 ## User Management
 1. Create user
