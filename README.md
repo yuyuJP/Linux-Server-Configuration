@@ -165,3 +165,34 @@ sudo nano /etc/apache2/sites-available/catalog.conf
   </VirtualHost>
 
 ```
+
+3. Enable config
+```
+$ sudo a2ensite catalog
+```
+
+## Create .wsgi File
+1. Create catalog.wsgi file
+```
+$ sudo nano /var/www/catalog/catalog.wsgi
+```
+
+2. Add the following lines
+```
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/catalog/")
+
+from catalog import app as application
+application.secret_key = 'secret_key'
+```
+
+3. Restart Apache
+```
+$ sudo service apache2 restart
+```
+
+## Testing
+To test this catalog app, you can visit [http://18.179.61.173.xip.io/](http://18.179.61.173.xip.io/)
